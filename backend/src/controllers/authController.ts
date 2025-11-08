@@ -23,7 +23,7 @@ export const signup = async (req: Request, res: Response) => {
     });
 
     // Generate token
-    const token = generateToken(user._id.toString());
+    const token = generateToken((user._id as any).toString());
 
     res.status(201).json({
       success: true,
@@ -73,7 +73,7 @@ export const login = async (req: Request, res: Response) => {
     }
 
     // Generate token
-    const token = generateToken(user._id.toString());
+    const token = generateToken((user._id as any).toString());
 
     res.status(200).json({
       success: true,

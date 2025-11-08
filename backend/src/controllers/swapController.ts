@@ -118,7 +118,7 @@ export const respondToSwapRequest = async (req: AuthRequest, res: Response) => {
     }
 
     // Verify the user is the recipient
-    if (swapRequest.recipient.toString() !== req.user!._id.toString()) {
+    if (swapRequest.recipient.toString() !== (req.user!._id as any).toString()) {
       return res.status(403).json({
         success: false,
         message: 'Not authorized to respond to this swap request'
@@ -246,7 +246,7 @@ export const cancelSwapRequest = async (req: AuthRequest, res: Response) => {
     }
 
     // Only the requester can cancel their own request
-    if (swapRequest.requester.toString() !== req.user!._id.toString()) {
+    if (swapRequest.requester.toString() !== (req.user!._id as any).toString()) {
       return res.status(403).json({
         success: false,
         message: 'You can only cancel your own swap requests'
