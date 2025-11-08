@@ -2,11 +2,13 @@ export interface User {
   id: string;
   name: string;
   email: string;
+  createdAt?: string;
 }
 
 export interface Event {
   _id: string;
   title: string;
+  description?: string;
   startTime: string;
   endTime: string;
   status: 'BUSY' | 'SWAPPABLE' | 'SWAP_PENDING';

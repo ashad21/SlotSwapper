@@ -162,7 +162,7 @@ const AddEventModal: React.FC<AddEventModalProps> = ({
                   name="status"
                   value="BUSY"
                   checked={formData.status === 'BUSY'}
-                  onChange={(e) => setFormData({ ...formData, status: 'BUSY' })}
+                  onChange={() => setFormData({ ...formData, status: 'BUSY' })}
                   className="w-4 h-4 text-primary"
                 />
                 <span className="text-sm">Busy (Not swappable)</span>
@@ -173,7 +173,7 @@ const AddEventModal: React.FC<AddEventModalProps> = ({
                   name="status"
                   value="SWAPPABLE"
                   checked={formData.status === 'SWAPPABLE'}
-                  onChange={(e) => setFormData({ ...formData, status: 'SWAPPABLE' })}
+                  onChange={() => setFormData({ ...formData, status: 'SWAPPABLE' })}
                   className="w-4 h-4 text-primary"
                 />
                 <span className="text-sm">Swappable</span>

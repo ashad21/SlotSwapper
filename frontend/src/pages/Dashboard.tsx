@@ -80,16 +80,6 @@ const Dashboard: React.FC = () => {
     }
   };
 
-  const handleSwapResponse = async (requestId: string, accept: boolean) => {
-    try {
-      await api.post(`/swap/swap-response/${requestId}`, { accept });
-      toast.success(accept ? 'Swap accepted!' : 'Swap rejected!');
-      fetchData();
-    } catch (error) {
-      toast.error('Failed to respond to swap request');
-    }
-  };
-
   const handleDeleteEvent = async (eventId: string) => {
     if (!confirm('Are you sure you want to delete this event?')) return;
     

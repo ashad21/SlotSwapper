@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { format, startOfWeek, addDays, isSameDay, parseISO } from 'date-fns';
 import { Clock, Calendar as CalendarIcon } from 'lucide-react';
 import type { Event } from '@/types';
