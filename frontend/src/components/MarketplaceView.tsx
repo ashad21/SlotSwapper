@@ -77,8 +77,8 @@ const MarketplaceView: React.FC<MarketplaceViewProps> = ({ myEvents, onSwapReque
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Marketplace</h2>
-        <p className="text-gray-600">Browse and request swaps from other users</p>
+        <h2 className="text-2xl font-bold text-foreground mb-2">Marketplace</h2>
+        <p className="text-muted-foreground">Browse and request swaps from other users</p>
       </div>
 
       {/* My Swappable Slots Selection */}
@@ -142,7 +142,7 @@ const MarketplaceView: React.FC<MarketplaceViewProps> = ({ myEvents, onSwapReque
       {/* Search Bar */}
       <div className="flex gap-2">
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
           <Input
             placeholder="Search available slots..."
             value={searchTerm}
@@ -158,7 +158,7 @@ const MarketplaceView: React.FC<MarketplaceViewProps> = ({ myEvents, onSwapReque
       {/* Available Slots */}
       <div className="space-y-3">
         <div className="flex items-center justify-between">
-          <h3 className="font-semibold text-gray-900">
+          <h3 className="font-semibold text-foreground">
             Available Slots ({filteredSlots.length})
           </h3>
         </div>
@@ -166,12 +166,12 @@ const MarketplaceView: React.FC<MarketplaceViewProps> = ({ myEvents, onSwapReque
         {filteredSlots.length === 0 ? (
           <Card>
             <CardContent className="py-12 text-center">
-              <ArrowRightLeft className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600 mb-2">
+              <ArrowRightLeft className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+              <p className="text-muted-foreground mb-2">
                 {searchTerm ? 'No slots match your search' : 'No swappable slots available from other users'}
               </p>
               {!searchTerm && (
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-muted-foreground">
                   Other users need to mark their events as "Swappable" for them to appear here.
                 </p>
               )}

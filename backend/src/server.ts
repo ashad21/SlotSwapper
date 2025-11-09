@@ -14,9 +14,6 @@ import swapRoutes from './routes/swapRoutes';
 // Load environment variables
 dotenv.config();
 
-// Connect to database
-connectDB();
-
 // Initialize Express app
 const app: Application = express();
 const server = http.createServer(app);
@@ -106,8 +103,24 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
 
 // Start server
 const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-});
+
+const start = async () => {
+  try {
+    // Connect to database first
+    await connectDB();
+    
+    // Then start the server
+    server.listen(PORT, () => {
+      console.log(`🚀 Server running on port ${PORT}`);
+      console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
+    });
+  } catch (error) {
+    console.error('❌ Failed to start server:', error);
+    process.exit(1);
+  }
+};
+
+// Start the application
+start();
 
 export { io };

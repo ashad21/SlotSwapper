@@ -14,6 +14,7 @@ import CalendarView from '@/components/CalendarView';
 import EnhancedMarketplace from '@/components/EnhancedMarketplace';
 import RequestsView from '@/components/RequestsView';
 import UserProfile from '@/components/UserProfile';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 const Dashboard: React.FC = () => {
   const { user, logout } = useAuth();
@@ -114,29 +115,33 @@ const Dashboard: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
       {/* Header */}
-      <header className="bg-white border-b shadow-sm">
+      <header className="bg-card border-b border-border shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
+            <button 
+              onClick={() => window.location.href = '/'}
+              className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+            >
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <Calendar className="w-6 h-6 text-white" />
+                <Calendar className="w-6 h-6 text-primary-foreground" />
               </div>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">SlotSwapper</h1>
-                <p className="text-sm text-gray-600">Welcome back, {user?.name}!</p>
+              <div className="text-left">
+                <h1 className="text-2xl font-bold text-foreground">SlotSwapper</h1>
+                <p className="text-sm text-muted-foreground">Welcome back, {user?.name}!</p>
               </div>
-            </div>
+            </button>
             <div className="flex items-center space-x-3">
               {pendingRequests.length > 0 && (
                 <div className="relative">
-                  <Bell className="w-6 h-6 text-gray-600" />
-                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  <Bell className="w-6 h-6 text-muted-foreground" />
+                  <span className="absolute -top-1 -right-1 bg-destructive text-destructive-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center">
                     {pendingRequests.length}
                   </span>
                 </div>
               )}
+              <ThemeToggle />
               <Button variant="outline" onClick={logout}>
                 <LogOut className="w-4 h-4 mr-2" />
                 Logout
@@ -149,13 +154,13 @@ const Dashboard: React.FC = () => {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Tabs */}
-        <div className="flex space-x-2 mb-6 bg-white rounded-lg p-1 shadow-sm">
+        <div className="flex space-x-2 mb-6 bg-card rounded-lg p-1 shadow-sm border border-border">
           <button
             onClick={() => setActiveTab('calendar')}
             className={`flex-1 py-2 px-4 rounded-md transition-colors ${
               activeTab === 'calendar'
-                ? 'bg-primary text-white'
-                : 'text-gray-600 hover:bg-gray-100'
+                ? 'bg-primary text-primary-foreground'
+                : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'
             }`}
           >
             <Calendar className="w-4 h-4 inline mr-2" />
@@ -165,8 +170,8 @@ const Dashboard: React.FC = () => {
             onClick={() => setActiveTab('marketplace')}
             className={`flex-1 py-2 px-4 rounded-md transition-colors ${
               activeTab === 'marketplace'
-                ? 'bg-primary text-white'
-                : 'text-gray-600 hover:bg-gray-100'
+                ? 'bg-primary text-primary-foreground'
+                : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'
             }`}
           >
             <ArrowRightLeft className="w-4 h-4 inline mr-2" />
@@ -176,8 +181,8 @@ const Dashboard: React.FC = () => {
             onClick={() => setActiveTab('requests')}
             className={`flex-1 py-2 px-4 rounded-md transition-colors ${
               activeTab === 'requests'
-                ? 'bg-primary text-white'
-                : 'text-gray-600 hover:bg-gray-100'
+                ? 'bg-primary text-primary-foreground'
+                : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'
             }`}
           >
             <Bell className="w-4 h-4 inline mr-2" />
@@ -187,8 +192,8 @@ const Dashboard: React.FC = () => {
             onClick={() => setActiveTab('profile')}
             className={`flex-1 py-2 px-4 rounded-md transition-colors ${
               activeTab === 'profile'
-                ? 'bg-primary text-white'
-                : 'text-gray-600 hover:bg-gray-100'
+                ? 'bg-primary text-primary-foreground'
+                : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'
             }`}
           >
             <UserIcon className="w-4 h-4 inline mr-2" />
@@ -200,7 +205,7 @@ const Dashboard: React.FC = () => {
         {activeTab === 'calendar' && (
           <div className="space-y-4">
             <div className="flex justify-between items-center">
-              <h2 className="text-2xl font-bold text-gray-900">My Events</h2>
+              <h2 className="text-2xl font-bold text-foreground">My Events</h2>
               <div className="flex gap-2">
                 <Button
                   variant="outline"

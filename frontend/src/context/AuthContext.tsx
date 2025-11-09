@@ -70,7 +70,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setUser(null);
     disconnectSocket();
     toast.success('Logged out successfully');
-    navigate('/login');
+    navigate('/');
   };
 
   return (

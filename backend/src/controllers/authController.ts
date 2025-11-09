@@ -6,6 +6,14 @@ export const signup = async (req: Request, res: Response) => {
   try {
     const { name, email, password } = req.body;
 
+    // Validate required fields
+    if (!name || !email || !password) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please provide name, email, and password'
+      });
+    }
+
     // Check if user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -59,7 +67,7 @@ export const login = async (req: Request, res: Response) => {
     if (!user) {
       return res.status(401).json({
         success: false,
-        message: 'Invalid credentials'
+        message: 'User does not exist. Please create a new account.'
       });
     }
 
@@ -68,7 +76,7 @@ export const login = async (req: Request, res: Response) => {
     if (!isPasswordCorrect) {
       return res.status(401).json({
         success: false,
-        message: 'Invalid credentials'
+        message: 'Incorrect password. Please try again.'
       });
     }
 

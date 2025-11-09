@@ -92,15 +92,15 @@ const RequestsView: React.FC<RequestsViewProps> = ({ swapRequests, onRequestsUpd
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900">Swap Requests</h2>
-        <p className="text-gray-600 mt-1">Manage your incoming and outgoing swap requests</p>
+        <h2 className="text-2xl font-bold text-foreground">Swap Requests</h2>
+        <p className="text-muted-foreground mt-1">Manage your incoming and outgoing swap requests</p>
       </div>
 
       {/* Incoming Requests */}
       <div className="space-y-4">
         <div className="flex items-center gap-2">
           <Bell className="w-5 h-5 text-primary" />
-          <h3 className="text-xl font-semibold text-gray-900">
+          <h3 className="text-xl font-semibold text-foreground">
             Incoming Requests ({incomingRequests.length})
           </h3>
         </div>
@@ -108,8 +108,8 @@ const RequestsView: React.FC<RequestsViewProps> = ({ swapRequests, onRequestsUpd
         {incomingRequests.length === 0 ? (
           <Card>
             <CardContent className="py-12 text-center">
-              <Bell className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600">No incoming swap requests</p>
+              <Bell className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+              <p className="text-muted-foreground">No incoming swap requests</p>
             </CardContent>
           </Card>
         ) : (
@@ -174,7 +174,7 @@ const RequestsView: React.FC<RequestsViewProps> = ({ swapRequests, onRequestsUpd
       <div className="space-y-4">
         <div className="flex items-center gap-2">
           <ArrowRightLeft className="w-5 h-5 text-primary" />
-          <h3 className="text-xl font-semibold text-gray-900">
+          <h3 className="text-xl font-semibold text-foreground">
             Outgoing Requests ({outgoingRequests.length})
           </h3>
         </div>
@@ -182,8 +182,8 @@ const RequestsView: React.FC<RequestsViewProps> = ({ swapRequests, onRequestsUpd
         {outgoingRequests.length === 0 ? (
           <Card>
             <CardContent className="py-12 text-center">
-              <ArrowRightLeft className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600">No outgoing swap requests</p>
+              <ArrowRightLeft className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+              <p className="text-muted-foreground">No outgoing swap requests</p>
             </CardContent>
           </Card>
         ) : (

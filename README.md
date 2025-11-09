@@ -30,11 +30,13 @@ A modern, peer-to-peer time-slot scheduling application that allows users to swa
 - No page refresh needed
 
 🎨 **Beautiful UI/UX**
-- Modern gradient backgrounds
+- Modern light/dark theme toggle
+- System preference detection
 - Responsive design for all devices
 - Smooth animations and transitions
 - Toast notifications for user feedback
 - Loading states and error handling
+- Professional landing page
 
 ## 🚀 Technology Stack
 

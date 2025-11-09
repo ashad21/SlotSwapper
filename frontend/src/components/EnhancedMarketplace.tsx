@@ -70,8 +70,8 @@ const EnhancedMarketplace: React.FC<EnhancedMarketplaceProps> = ({ myEvents, onS
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900">Marketplace</h2>
-          <p className="text-gray-600 mt-1">Browse and request swaps from other users</p>
+          <h2 className="text-2xl font-bold text-foreground">Marketplace</h2>
+          <p className="text-muted-foreground mt-1">Browse and request swaps from other users</p>
         </div>
         <Button variant="outline" size="sm" onClick={fetchAvailableSlots}>
           <RefreshCw className="w-4 h-4 mr-2" />
