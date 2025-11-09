@@ -15,6 +15,7 @@ import EnhancedMarketplace from '@/components/EnhancedMarketplace';
 import RequestsView from '@/components/RequestsView';
 import UserProfile from '@/components/UserProfile';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import EventDescriptionModal from '@/components/EventDescriptionModal';
 
 const Dashboard: React.FC = () => {
   const { user, logout } = useAuth();
@@ -24,6 +25,7 @@ const Dashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'calendar' | 'marketplace' | 'requests' | 'profile'>('calendar');
   const [showAddModal, setShowAddModal] = useState(false);
   const [viewMode, setViewMode] = useState<'list' | 'grid'>('list');
+  const [descriptionModal, setDescriptionModal] = useState<{ open: boolean; title: string; description: string }>({ open: false, title: '', description: '' });
 
   useEffect(() => {
     fetchData();
@@ -255,7 +257,7 @@ const Dashboard: React.FC = () => {
                           </div>
                         </CardHeader>
                         <CardContent>
-                          <div className="flex space-x-2">
+                          <div className="flex flex-wrap gap-2">
                             {event.status === 'BUSY' && (
                               <Button
                                 size="sm"
@@ -274,10 +276,19 @@ const Dashboard: React.FC = () => {
                                 Mark as Busy
                               </Button>
                             )}
+                            {event.description && (
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={() => setDescriptionModal({ open: true, title: event.title, description: event.description || '' })}
+                              >
+                                See Description
+                              </Button>
+                            )}
                             <Button
                               size="sm"
                               variant="outline"
-                              className="ml-auto text-red-600 hover:text-red-700 hover:bg-red-50"
+                              className="ml-auto text-red-600 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-950"
                               onClick={() => handleDeleteEvent(event._id)}
                             >
                               <Trash2 className="w-4 h-4" />
@@ -323,6 +334,14 @@ const Dashboard: React.FC = () => {
         open={showAddModal}
         onOpenChange={setShowAddModal}
         onEventCreated={fetchEvents}
+      />
+
+      {/* Event Description Modal */}
+      <EventDescriptionModal
+        open={descriptionModal.open}
+        onOpenChange={(open) => setDescriptionModal({ ...descriptionModal, open })}
+        title={descriptionModal.title}
+        description={descriptionModal.description}
       />
     </div>
   );

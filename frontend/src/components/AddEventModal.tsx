@@ -121,6 +121,7 @@ const AddEventModal: React.FC<AddEventModalProps> = ({
                 type="datetime-local"
                 value={formData.startTime}
                 onChange={(e) => setFormData({ ...formData, startTime: e.target.value })}
+                className="[&::-webkit-calendar-picker-indicator]:opacity-100 [&::-webkit-calendar-picker-indicator]:cursor-pointer"
                 required
               />
             </div>
@@ -135,6 +136,7 @@ const AddEventModal: React.FC<AddEventModalProps> = ({
                 type="datetime-local"
                 value={formData.endTime}
                 onChange={(e) => setFormData({ ...formData, endTime: e.target.value })}
+                className="[&::-webkit-calendar-picker-indicator]:opacity-100 [&::-webkit-calendar-picker-indicator]:cursor-pointer"
               />
             </div>
           </div>
