@@ -131,17 +131,17 @@ const RequestsView: React.FC<RequestsViewProps> = ({ swapRequests, onRequestsUpd
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-4">
-                    <div className="p-4 bg-blue-50 rounded-lg">
-                      <p className="text-xs font-semibold text-blue-700 mb-2">THEY OFFER</p>
-                      <h4 className="font-semibold">{request.requesterSlot?.title}</h4>
-                      <p className="text-sm text-gray-600 mt-1">
+                    <div className="p-4 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
+                      <p className="text-xs font-semibold text-blue-700 dark:text-blue-400 mb-2">THEY OFFER</p>
+                      <h4 className="font-semibold text-foreground">{request.requesterSlot?.title}</h4>
+                      <p className="text-sm text-muted-foreground mt-1">
                         {request.requesterSlot?.startTime && format(new Date(request.requesterSlot.startTime), 'PPp')}
                       </p>
                     </div>
-                    <div className="p-4 bg-purple-50 rounded-lg">
-                      <p className="text-xs font-semibold text-purple-700 mb-2">YOUR SLOT</p>
-                      <h4 className="font-semibold">{request.recipientSlot?.title}</h4>
-                      <p className="text-sm text-gray-600 mt-1">
+                    <div className="p-4 bg-purple-50 dark:bg-purple-950/30 rounded-lg border border-purple-200 dark:border-purple-800">
+                      <p className="text-xs font-semibold text-purple-700 dark:text-purple-400 mb-2">YOUR SLOT</p>
+                      <h4 className="font-semibold text-foreground">{request.recipientSlot?.title}</h4>
+                      <p className="text-sm text-muted-foreground mt-1">
                         {request.recipientSlot?.startTime && format(new Date(request.recipientSlot.startTime), 'PPp')}
                       </p>
                     </div>
@@ -205,17 +205,17 @@ const RequestsView: React.FC<RequestsViewProps> = ({ swapRequests, onRequestsUpd
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-2 gap-4">
-                    <div className="p-4 bg-purple-50 rounded-lg">
-                      <p className="text-xs font-semibold text-purple-700 mb-2">YOU OFFERED</p>
-                      <h4 className="font-semibold">{request.requesterSlot?.title}</h4>
-                      <p className="text-sm text-gray-600 mt-1">
+                    <div className="p-4 bg-purple-50 dark:bg-purple-950/30 rounded-lg border border-purple-200 dark:border-purple-800">
+                      <p className="text-xs font-semibold text-purple-700 dark:text-purple-400 mb-2">YOU OFFERED</p>
+                      <h4 className="font-semibold text-foreground">{request.requesterSlot?.title}</h4>
+                      <p className="text-sm text-muted-foreground mt-1">
                         {request.requesterSlot?.startTime && format(new Date(request.requesterSlot.startTime), 'PPp')}
                       </p>
                     </div>
-                    <div className="p-4 bg-blue-50 rounded-lg">
-                      <p className="text-xs font-semibold text-blue-700 mb-2">FOR THEIR SLOT</p>
-                      <h4 className="font-semibold">{request.recipientSlot?.title}</h4>
-                      <p className="text-sm text-gray-600 mt-1">
+                    <div className="p-4 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
+                      <p className="text-xs font-semibold text-blue-700 dark:text-blue-400 mb-2">FOR THEIR SLOT</p>
+                      <h4 className="font-semibold text-foreground">{request.recipientSlot?.title}</h4>
+                      <p className="text-sm text-muted-foreground mt-1">
                         {request.recipientSlot?.startTime && format(new Date(request.recipientSlot.startTime), 'PPp')}
                       </p>
                     </div>
