@@ -1,3 +1,5 @@
+It is live on server : https://slotswapper-gold.vercel.app/
+
 # SlotSwapper 🔄
 
 A modern, peer-to-peer time-slot scheduling application that allows users to swap calendar slots seamlessly.
